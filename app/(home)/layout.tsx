@@ -1,3 +1,5 @@
+import { Navbar } from "./_components/navbar"
+
 const HomeLayout = ({
     children
 } : {
@@ -5,7 +7,7 @@ const HomeLayout = ({
 }) => {
     return (
         <div className="h-full bg-slate-800">
-            {/* {navbar} */}
+            <Navbar/>
             <main className="pt-40 bg-slate-800">
                 {children}
             </main>
