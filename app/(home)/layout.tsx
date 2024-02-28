@@ -1,3 +1,4 @@
+import { Footer } from "./_components/footer"
 import { Navbar } from "./_components/navbar"
 
 const HomeLayout = ({
@@ -11,7 +12,7 @@ const HomeLayout = ({
             <main className="pt-40 bg-slate-800">
                 {children}
             </main>
-            {/* {footer} */}
+            <Footer/>
         </div>
     )
 }
