@@ -6,6 +6,24 @@ html, body, :root {
   height: 100%;
 }
 
+.ml-auto {
+  margin-left:auto
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.ml-3 {
+  margin-left: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .md\:hidden {
+    display: none;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

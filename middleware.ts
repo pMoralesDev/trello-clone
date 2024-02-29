@@ -3,27 +3,24 @@ import { authMiddleware, redirectToSignIn } from "@clerk/nextjs";
  
 export default authMiddleware({
   // Routes that can be accessed while signed out
-  publicRoutes: ['/', '/select.org'],
-  afterAuth(auth, req) {
-    console.log(`Esto es el auth ${auth.userId}`)
-    console.log(`Esto es el auth ${auth.isPublicRoute}`)
-    
+  publicRoutes: ['/', 'select-org'],
+  afterAuth(auth, req) {    
     if(auth.userId && auth.isPublicRoute) {
       let path = '/select-org'
-      console.log(`Esto es el req: ${req.url}`)
-      if (auth.orgId){
-        path = `/organization/${auth.orgId}`
-      }
+      // if (auth.orgId){
+      //   path = `/organization/${auth.orgId}`
+      // }
       const orgSelection = new URL (path, req.url)
       return NextResponse.redirect(orgSelection)
     }
-    // if (!auth.userId && !auth.isPublicRoute) {
-    //   return redirectToSignIn({returnBackUrl: req.url})
-    // }
-    // if (auth.userId && !auth.isPublicRoute && req.nextUrl.pathname !== '/select-org'){
-    //   const orgSelection = new URL ('/select-org', req.url)
-    //   return NextResponse.redirect(orgSelection)
-    // }
+    if (!auth.userId && !auth.isPublicRoute) {
+      return redirectToSignIn({returnBackUrl: req.url})
+    }
+    if (auth.userId && auth.isPublicRoute && req.nextUrl.pathname !== '/select-org'){
+      console.log(`Es la ruta publica la web: ${auth.isPublicRoute}`)
+      const orgSelection = new URL ('/select-org', req.url)
+      return NextResponse.redirect(orgSelection)
+    }
   }
 });
  
