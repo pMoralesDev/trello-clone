@@ -6,6 +6,7 @@ html, body, :root {
   height: 100%;
 }
 
+/* Estilos tailwind que no funcionan, puestos a mano */
 .ml-auto {
   margin-left:auto
 }
@@ -18,12 +19,16 @@ html, body, :root {
   margin-left: 0.75rem;
 }
 
+.static-custom {
+  position: static !important;
+}
+
 @media (min-width: 768px) {
   .md\:hidden {
     display: none;
   }
 }
-
+/* Fin estilos tailwind */
 @layer base {
   :root {
     --background: 0 0% 100%;

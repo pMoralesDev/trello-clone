@@ -6,7 +6,7 @@ const DashboardLayout = ({
     children:React.ReactNode
 }) => {
     return (
-        <div className="h-full">
+        <div className="h-full bg-slate-800">
             <Navbar />
             {children}
         </div>
