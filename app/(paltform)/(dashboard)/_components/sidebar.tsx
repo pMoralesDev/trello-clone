@@ -35,8 +35,9 @@ export const Sidebar = ({
     )
 
     const onExpand = (id: string) => {
-        console.log(id)
-        setExpanded((curr) => ({
+        console.log('Entro en el onExpand')
+        setExpanded((curr) => (
+            console.log('Entro en el set expanded'),{
           ...curr,
           [id]: !expanded[id],
         }));
