@@ -56,7 +56,6 @@ export const NavItem = ({
     return (
         <AccordionItem value="organization.id" className="border-none">
             <p>Activo:{isActive.toString()},Expandido:{isExpanded.toString()}</p>
-            <p>{onExpand.toString()}</p>
             <AccordionTrigger onClick={ () => onExpand(organization.id)}
             className={cn( "flex items-center gap-x-2 p-1.5 text-neutral-400 rounded-md hover:bg-slate-700 transition text-start no-underline hover:no-underline",
             isActive && !isExpanded && "bg-slate-700 text-neutral-100")}>
